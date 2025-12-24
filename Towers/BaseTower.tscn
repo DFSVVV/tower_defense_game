@@ -10,7 +10,7 @@
 size = Vector2(87, 79)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_id8qf"]
-radius = 400.0
+radius = 398.0314
 
 [sub_resource type="GDScript" id="GDScript_5tlqh"]
 script/source = "extends CollisionShape2D

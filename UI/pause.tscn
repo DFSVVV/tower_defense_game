@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt3a8ju7n34xn"]
+
+[ext_resource type="Script" uid="uid://bvlgg0ljqj4fx" path="res://Scripts/continue.gd" id="1_6wphx"]
+[ext_resource type="Script" uid="uid://2c062rb77dqu" path="res://Scripts/pause.gd" id="1_jixca"]
+
+[sub_resource type="GDScript" id="GDScript_6wphx"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_jixca"]
+font_size = 500
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_jixca")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 3201.0
+offset_bottom = 1792.0
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 1008.0
+offset_top = 1024.0
+offset_right = 1520.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 100
+text = "Continue"
+script = ExtResource("1_6wphx")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 2048.0
+offset_top = 1024.0
+offset_right = 2560.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+script = SubResource("GDScript_6wphx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -83.0
+offset_top = 157.0
+offset_right = 3502.0
+offset_bottom = 809.0
+theme_override_font_sizes/font_size = 100
+text = "Pause"
+label_settings = SubResource("LabelSettings_jixca")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Continue" to="Continue" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

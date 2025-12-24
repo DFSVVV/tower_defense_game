@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceagkljbxlvja"]
 
-[ext_resource type="Script" uid="uid://d47l3ft12u3t" path="res://UI/base_move.gd" id="1_jwf1m"]
+[ext_resource type="Script" uid="uid://bpb520gg44mb7" path="res://Scripts/base_move.gd" id="1_rmn4e"]
 
 [sub_resource type="Curve2D" id="Curve2D_0adxh"]
 _data = {
@@ -10,7 +10,7 @@ point_count = 59
 
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_0adxh")
-script = ExtResource("1_jwf1m")
+script = ExtResource("1_rmn4e")
 
 [node name="PathSpawner" type="PathFollow2D" parent="."]
 position = Vector2(227, 228)
