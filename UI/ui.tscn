@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddoeholnt2lip"]
+
+[ext_resource type="PackedScene" uid="uid://crnrm71rqmepv" path="res://Towers/BaseTowerPanel.tscn" id="2_5wnq8"]
+[ext_resource type="PackedScene" uid="uid://b4xp56oji6c5r" path="res://Towers/air_towerPanel.tscn" id="2_hat8c"]
+[ext_resource type="Script" uid="uid://wgejhx7xie2f" path="res://Scripts/health.gd" id="2_m6e0p"]
+[ext_resource type="Script" uid="uid://6h2cghkta0at" path="res://Scripts/time.gd" id="3_27fn8"]
+[ext_resource type="Script" uid="uid://bew3dbny7abvc" path="res://Scripts/科技点.gd" id="5_3sbvi"]
+
+[sub_resource type="GDScript" id="GDScript_fdl0b"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	self.text = \"金币: %d\" % [Game.Gold]
+"
+
+[sub_resource type="GDScript" id="GDScript_puusd"]
+script/source = "extends Label
+
+
+func _process(delta):
+	self.text = \"波次: \" + str(Game.WaveNow)+ \"/\" + str(Game.WaveTotal)
+"
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 2944.0
+offset_right = 3584.0
+offset_bottom = 2048.0
+
+[node name="TowerContainer" type="VFlowContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 235.0
+offset_bottom = 704.0
+scale = Vector2(3, 3)
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="RedTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("2_5wnq8")]
+layout_mode = 2
+
+[node name="RedTowerPanel3" parent="Panel/TowerContainer" instance=ExtResource("2_5wnq8")]
+layout_mode = 2
+
+[node name="BaseTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("2_hat8c")]
+layout_mode = 2
+
+[node name="Electricity" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 518.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 100
+text = "电力"
+script = SubResource("GDScript_fdl0b")
+
+[node name="Wave" type="Label" parent="."]
+offset_left = 1452.0
+offset_top = 5.0
+offset_right = 1964.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 100
+text = "波次"
+script = SubResource("GDScript_puusd")
+
+[node name="Time" type="Label" parent="."]
+offset_top = 147.0
+offset_right = 600.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 100
+text = "下波出怪时间"
+script = ExtResource("3_27fn8")
+
+[node name="Health" type="Label" parent="."]
+offset_left = 1458.0
+offset_top = 167.0
+offset_right = 2058.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 100
+text = "生命值"
+script = ExtResource("2_m6e0p")
+
+[node name="Reasearch_oints" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 298.0
+offset_right = 618.0
+offset_bottom = 439.0
+theme_override_font_sizes/font_size = 100
+text = "科技点"
+script = ExtResource("5_3sbvi")

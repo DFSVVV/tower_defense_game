@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://6c6kewqbkigy"]
+
+[ext_resource type="PackedScene" uid="uid://dedc4s5gs6k8v" path="res://Tiles/TileMap.tscn" id="1_25n6f"]
+[ext_resource type="Script" uid="uid://dqdyrsdi5mk85" path="res://Scripts/PathSpawner.gd" id="2_3vi2l"]
+[ext_resource type="PackedScene" uid="uid://ddoeholnt2lip" path="res://UI/ui.tscn" id="4_4jwic"]
+[ext_resource type="PackedScene" uid="uid://b5hmuba4q0ko" path="res://UI/level_up_screen.tscn" id="4_dyfb5"]
+[ext_resource type="PackedScene" uid="uid://dr2curieg6d4y" path="res://Decorations/BaseDecoration.tscn" id="5_deq60"]
+
+[sub_resource type="GDScript" id="GDScript_tiaqs"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Game.Health <= 0 or (Game.WaveNow == Game.WaveTotal and Game.EnemyNum == 0):
+		get_tree().change_scene_to_file(\"res://UI/MainMenu.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_bahdm"]
+script/source = "extends Node2D
+
+
+var Towers = []
+
+
+func _process(delta):
+	Towers = []
+	for i in get_child_count():
+		Towers.append(get_child(i))
+"
+
+[node name="Main" type="Node2D"]
+script = SubResource("GDScript_tiaqs")
+
+[node name="TileMap" parent="." instance=ExtResource("1_25n6f")]
+
+[node name="PathSpawner" type="Node2D" parent="."]
+script = ExtResource("2_3vi2l")
+
+[node name="Timer" type="Timer" parent="PathSpawner"]
+
+[node name="Towers" type="Node2D" parent="."]
+script = SubResource("GDScript_bahdm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1792, 1024)
+
+[node name="UI" parent="." instance=ExtResource("4_4jwic")]
+
+[node name="LevelUpScreen" parent="." instance=ExtResource("4_dyfb5")]
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="Node2D" parent="Decorations" instance=ExtResource("5_deq60")]
+y_sort_enabled = true
+position = Vector2(266, 126)
+scale = Vector2(10, 10)
+
+[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]

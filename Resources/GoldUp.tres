@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://cc0ge5ogqd474"]
+
+[ext_resource type="Script" uid="uid://dyb5x0kre8wa8" path="res://Scripts/upgrade_item.gd" id="1_drnma"]
+
+[resource]
+script = ExtResource("1_drnma")
+title = "金币加1000"
+description = "金币数加1000"
+id = "gold"
+value = 1000
+metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

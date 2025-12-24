@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://jn2rceiqhdmc"]
+
+[ext_resource type="Script" uid="uid://blo0w0bbv4rdi" path="res://Scripts/BaseEnemy.gd" id="1_0wax5"]
+[ext_resource type="Texture2D" uid="uid://bkth3cp4emern" path="res://Assets/Asset/Simple Tower Defense/Enemies/spr_bat.png" id="2_818h4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nkuh"]
+radius = 11.671428
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ihlb"]
+bg_color = Color(0.937255, 0, 0.00784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yujj"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_lq2ab"]
+script/source = "extends ProgressBar
+
+
+func _ready():
+	self.max_value = get_parent().health
+	
+func _process(delta):
+	self.value = get_parent().health
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_818h4"]
+atlas = ExtResource("2_818h4")
+region = Rect2(0, 0, 10, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i84gb"]
+atlas = ExtResource("2_818h4")
+region = Rect2(10, 0, 10, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbkt5"]
+atlas = ExtResource("2_818h4")
+region = Rect2(20, 0, 10, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2avbx"]
+atlas = ExtResource("2_818h4")
+region = Rect2(30, 0, 10, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i84gb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_818h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i84gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbkt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2avbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaseEnemy" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_0wax5")
+speed = 300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2nkuh")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -27.0
+offset_right = 22.0
+offset_bottom = -21.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5ihlb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0yujj")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+script = SubResource("GDScript_lq2ab")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i84gb")
+autoplay = "default"
+frame_progress = 0.2288611

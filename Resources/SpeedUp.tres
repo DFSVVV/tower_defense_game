@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://dddumkovjvtp8"]
+
+[ext_resource type="Script" uid="uid://dyb5x0kre8wa8" path="res://Scripts/upgrade_item.gd" id="1_6my8v"]
+
+[resource]
+script = ExtResource("1_6my8v")
+title = "攻击速度加10"
+description = "攻击速度加10"
+id = "speed"
+value = 10
+metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

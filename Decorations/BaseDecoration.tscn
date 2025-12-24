@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr2curieg6d4y"]
+
+[ext_resource type="Texture2D" uid="uid://b5o8lav40xmxx" path="res://Assets/Asset/Simple Tower Defense/Environment/Decoration/spr_mushroom_01.png" id="1_crqib"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ye80m"]
+radius = 5.0
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_crqib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_ye80m")

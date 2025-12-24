@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://dmqiu7241y3dn"]
+
+[ext_resource type="Script" uid="uid://dyb5x0kre8wa8" path="res://Scripts/upgrade_item.gd" id="1_hqrsf"]
+
+[resource]
+script = ExtResource("1_hqrsf")
+title = "炮台伤害提高10%"
+description = "炮台伤害提高10"
+value = 10
+metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

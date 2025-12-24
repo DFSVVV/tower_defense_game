@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3ncehfdptvc0"]
+
+[ext_resource type="PackedScene" uid="uid://jn2rceiqhdmc" path="res://Mobs/BaseEnemy.tscn" id="1_u0hs3"]
+[ext_resource type="Texture2D" uid="uid://cqnfa104p3cjx" path="res://Assets/Asset/Simple Tower Defense/Enemies/spr_goblin.png" id="2_n0mbl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x8dd"]
+atlas = ExtResource("2_n0mbl")
+region = Rect2(0, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omsqc"]
+atlas = ExtResource("2_n0mbl")
+region = Rect2(11, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq0f6"]
+atlas = ExtResource("2_n0mbl")
+region = Rect2(22, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnmy7"]
+atlas = ExtResource("2_n0mbl")
+region = Rect2(33, 0, 11, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn2b1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x8dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omsqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq0f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnmy7")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Goblin" instance=ExtResource("1_u0hs3")]
+health = 100
+gold_reward = 100
+research_point = 10
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_fn2b1")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.26194575
+flip_h = true

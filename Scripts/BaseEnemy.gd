@@ -1,0 +1,23 @@
+extends CharacterBody2D
+class_name BaseEnemy
+
+@export_group("敌人属性") # 加上分组更好看
+@export var health: int = 10
+@export var speed: int = 1000
+@export var gold_reward: int = 10
+@export var research_point : int = 1
+func _physics_process(delta):
+	get_parent().set_progress(get_parent().get_progress() + speed*delta)
+	
+	if get_parent().get_progress_ratio() == 1:
+		Game.Health-=1
+		death()
+		
+	if health <= 0:
+		death()
+		Game.gain_gold(gold_reward)
+		Game.gain_research(research_point)
+	
+func death():
+	Game.EnemyNum -=1
+	get_parent().get_parent().queue_free()

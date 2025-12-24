@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgm0u3wdyyloa"]
+
+[ext_resource type="Script" uid="uid://ud8w0d8yxywn" path="res://Scripts/upgrade_card_button.gd" id="1_f2pij"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_blcyg"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnmaa"]
+
+[node name="UpgradeCard" type="Button"]
+custom_minimum_size = Vector2(500, 700)
+offset_right = 500.0
+offset_bottom = 700.0
+script = ExtResource("1_f2pij")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_blcyg")
+horizontal_alignment = 1
+
+[node name="icon" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Describetion" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_bnmaa")
+horizontal_alignment = 1
+autowrap_mode = 3
