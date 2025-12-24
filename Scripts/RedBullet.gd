@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+class_name BaseTower
 @export_category("塔属性")
 @export var bullet_scene: PackedScene = preload("res://Bullet/BaseBullet.tscn")# 拖入不同的子弹场景 (如 RedBullet.tscn)
 @export var base_damage: int = 5

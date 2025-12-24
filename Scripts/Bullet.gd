@@ -1,10 +1,9 @@
 extends CharacterBody2D
-
+class_name BaseBullet
 
 var target
 var speed
 var bulletDamage
-	
 var target_enemy: CharacterBody2D
 
 func set_target(new_target):
