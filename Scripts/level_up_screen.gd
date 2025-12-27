@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 var all_upgrades: Array[UpgradeItem] = [] 
-const UPGRADES_PATH = "/Users/a123/Downloads/TD-Project-Reference-main/Resources/"
+const UPGRADES_PATH = "res://Resources/"
 @onready var card_container = $HBoxContainer
 @export var card_scene: PackedScene = preload("res://UI/upgrade_card_button.tscn")
 func _ready():
