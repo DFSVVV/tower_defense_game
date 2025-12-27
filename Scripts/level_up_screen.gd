@@ -38,6 +38,7 @@ func _on_level_up_ready():
 	get_tree().paused = true
 	# 2. 显示 UI
 	visible = true
+	Game.upgrade = true
 	# 3. 生成 3 个随机选项
 	generate_options()
 
@@ -61,6 +62,7 @@ func _on_card_selected(item: UpgradeItem):
 	print("选择了升级: ", item.title)	
 	apply_upgrade_effect(item)
 	visible = false
+	Game.upgrade = false
 	get_tree().paused = false
 	Game.gain_research(0)
 

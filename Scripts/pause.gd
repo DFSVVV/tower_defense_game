@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 		pause_game()
 		
 func pause_game():
+	if Game.upgrade == false:
+		get_tree().paused = !get_tree().paused
 	visible = !visible
-	get_tree().paused = !get_tree().paused
