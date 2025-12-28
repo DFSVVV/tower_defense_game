@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4tx7rj5vsolu"]
+
+[ext_resource type="PackedScene" uid="uid://crnrm71rqmepv" path="res://Towers/BaseTowerPanel.tscn" id="1_si3wf"]
+[ext_resource type="Texture2D" uid="uid://b47l8eg60cytx" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_lightning_tower.png" id="2_uhmj0"]
+
+[node name="BoomTowerPanel" instance=ExtResource("1_si3wf")]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 81.0
+
+[node name="TowerDefenseTile250" parent="." index="0"]
+position = Vector2(36.5, 40.500004)
+scale = Vector2(1.234, 1.25)
+texture = ExtResource("2_uhmj0")
