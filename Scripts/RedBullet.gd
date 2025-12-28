@@ -30,7 +30,7 @@ func _process(delta):
 		curr = null # 确保变量干净
 		_update_target() # 重新寻找
 	if is_instance_valid(curr) and locate:
-		self.look_at(curr.global_position)
+		#self.look_at(curr.global_position)
 		if timer.is_stopped():
 			Shoot(curr)
 			timer.start()
