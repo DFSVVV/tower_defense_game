@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddoeholnt2lip"]
+[gd_scene load_steps=12 format=3 uid="uid://ddoeholnt2lip"]
 
 [ext_resource type="PackedScene" uid="uid://crnrm71rqmepv" path="res://Towers/BaseTowerPanel.tscn" id="2_5wnq8"]
 [ext_resource type="PackedScene" uid="uid://b4xp56oji6c5r" path="res://Towers/air_towerPanel.tscn" id="2_hat8c"]
 [ext_resource type="Script" uid="uid://wgejhx7xie2f" path="res://Scripts/health.gd" id="2_m6e0p"]
 [ext_resource type="Script" uid="uid://6h2cghkta0at" path="res://Scripts/time.gd" id="3_27fn8"]
+[ext_resource type="PackedScene" uid="uid://6j31r2uyss7b" path="res://Towers/slow_towerPanel.tscn" id="3_nm1m0"]
+[ext_resource type="PackedScene" uid="uid://c13ypbll22td3" path="res://Towers/slow_tower.tscn" id="4_c7tqi"]
 [ext_resource type="Script" uid="uid://bew3dbny7abvc" path="res://Scripts/科技点.gd" id="5_3sbvi"]
+[ext_resource type="PackedScene" uid="uid://b4tx7rj5vsolu" path="res://Towers/boom_tower_panel.tscn" id="5_cbfhl"]
+[ext_resource type="PackedScene" uid="uid://dr54wnu7dr843" path="res://Towers/boom_tower.tscn" id="6_4fiuh"]
 
 [sub_resource type="GDScript" id="GDScript_fdl0b"]
 script/source = "extends Label
@@ -53,6 +57,14 @@ layout_mode = 2
 
 [node name="BaseTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("2_hat8c")]
 layout_mode = 2
+
+[node name="SlowTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("3_nm1m0")]
+layout_mode = 2
+tower = ExtResource("4_c7tqi")
+
+[node name="BoomTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("5_cbfhl")]
+layout_mode = 2
+tower = ExtResource("6_4fiuh")
 
 [node name="Electricity" type="Label" parent="."]
 offset_left = 6.0

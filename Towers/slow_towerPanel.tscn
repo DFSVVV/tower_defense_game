@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://6j31r2uyss7b"]
+
+[ext_resource type="PackedScene" uid="uid://crnrm71rqmepv" path="res://Towers/BaseTowerPanel.tscn" id="1_lotb5"]
+[ext_resource type="Texture2D" uid="uid://bd8gqv7b4vmxd" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png" id="2_rpnbn"]
+
+[node name="SlowTowerPanel" instance=ExtResource("1_lotb5")]
+offset_bottom = 80.0
+
+[node name="TowerDefenseTile250" parent="." index="0"]
+scale = Vector2(1.234, 1.25)
+texture = ExtResource("2_rpnbn")
+
+[node name="Label" parent="TowerDefenseTile250" index="0"]
+custom_minimum_size = Vector2(1, 0)
+offset_left = 0.81037235
+offset_right = 19.810371
+offset_bottom = 31.8
+
+[node name="TowerDefenseTile272" parent="TowerDefenseTile250/Label" index="0"]
+scale = Vector2(0.469, 0.469)
