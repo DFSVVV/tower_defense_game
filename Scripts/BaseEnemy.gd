@@ -21,11 +21,3 @@ func _physics_process(delta):
 func death():
 	Game.EnemyNum -=1
 	get_parent().get_parent().queue_free()
-func restore_speed():
-	# 恢复原始速度
-	if has_meta("original_speed"):
-		speed = get_meta("original_speed")
-		# 移除临时计时器（避免内存泄漏）
-		for child in get_children():
-			if child is Timer and child.name == "slow_timer":
-				child.queue_free()
