@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://crnrm71rqmepv"]
+[gd_scene load_steps=7 format=3 uid="uid://crnrm71rqmepv"]
 
 [ext_resource type="Script" uid="uid://d12hvqax2x8em" path="res://Scripts/RedTowerPanel.gd" id="1_4qha2"]
-[ext_resource type="Texture2D" uid="uid://c2mklvxtr2guy" path="res://Assets/PNG/Default size/towerDefense_tile250.png" id="2_whe4l"]
+[ext_resource type="Texture2D" uid="uid://cu6bqu0h2swti" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_crossbow.png" id="2_whe4l"]
 [ext_resource type="Texture2D" uid="uid://b5vf6ufaywu7e" path="res://Assets/PNG/Default size/towerDefense_tile275.png" id="3_rd8nj"]
 [ext_resource type="Script" uid="uid://blnq8hft1muk6" path="res://Scripts/label.gd" id="3_whe4l"]
+
+[sub_resource type="Theme" id="Theme_whe4l"]
+default_font_size = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea6on"]
 bg_color = Color(0.0666667, 0.0784314, 0.0588235, 1)
@@ -18,6 +21,7 @@ custom_minimum_size = Vector2(80, 80)
 offset_right = 80.0
 offset_bottom = 64.025
 size_flags_horizontal = 3
+theme = SubResource("Theme_whe4l")
 theme_override_styles/panel = SubResource("StyleBoxFlat_ea6on")
 script = ExtResource("1_4qha2")
 

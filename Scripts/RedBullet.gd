@@ -10,6 +10,7 @@ class_name BaseTower
 @export var update_range_cost: int = 10
 @export var update_damage_cost: int = 10
 @export var update_fire_rate_cost: int = 10
+@export var description: String = "这是一个发射普通子弹的塔"
 
 var pathName
 var currTargets = []

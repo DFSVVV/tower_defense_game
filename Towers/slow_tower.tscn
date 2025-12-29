@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c13ypbll22td3"]
+[gd_scene load_steps=5 format=3 uid="uid://c13ypbll22td3"]
 
 [ext_resource type="PackedScene" uid="uid://cxmourwhy2hg6" path="res://Towers/BaseTower.tscn" id="1_p6620"]
 [ext_resource type="Texture2D" uid="uid://bd8gqv7b4vmxd" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png" id="2_6x1cc"]
 [ext_resource type="Script" uid="uid://bweiv7irohyc4" path="res://Scripts/slow_tower.gd" id="2_ovs2l"]
+[ext_resource type="PackedScene" uid="uid://pndynvv0q8h1" path="res://Bullet/slow_bullet.tscn" id="3_ckvpx"]
 
 [node name="SlowTower" instance=ExtResource("1_p6620")]
 script = ExtResource("2_ovs2l")
@@ -10,10 +11,11 @@ slow_percent = 0.3
 slow_duration = 2.0
 slow_radius = 200
 is_aoe_slow = false
+bullet_scene = ExtResource("3_ckvpx")
+description = "这是一个发射冰冻子弹的塔"
 
 [node name="TowerDefenseTile250" parent="." index="2"]
 light_mask = 9
-rotation = 0.0
 scale = Vector2(4, 4)
 texture = ExtResource("2_6x1cc")
 

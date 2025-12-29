@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=3 uid="uid://cxmourwhy2hg6"]
 
 [ext_resource type="Script" uid="uid://b85fhi76f03m6" path="res://Scripts/RedBullet.gd" id="1_ghopm"]
-[ext_resource type="Texture2D" uid="uid://c2mklvxtr2guy" path="res://Assets/PNG/Default size/towerDefense_tile250.png" id="2_kaif2"]
+[ext_resource type="Texture2D" uid="uid://cu6bqu0h2swti" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_crossbow.png" id="2_ghopm"]
 [ext_resource type="Texture2D" uid="uid://c31o30053b18e" path="res://Assets/PNG/Default size/towerDefense_tile110.png" id="3_1kaps"]
 [ext_resource type="Texture2D" uid="uid://ddv7aga2ackrn" path="res://Assets/PNG/Default size/towerDefense_tile297.png" id="4_gmnh3"]
 [ext_resource type="Texture2D" uid="uid://ejml0b6ac3kx" path="res://Assets/PNG/Default size/towerDefense_tile296.png" id="5_pg8cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fspn"]
-size = Vector2(87, 79)
+size = Vector2(59, 101)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_id8qf"]
 radius = 398.0314
@@ -28,7 +28,7 @@ func _draw():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyn7l"]
-size = Vector2(97, 87)
+size = Vector2(65, 106)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5010x"]
 bg_color = Color(1, 0, 0, 1)
@@ -120,13 +120,12 @@ script = ExtResource("1_ghopm")
 position = Vector2(54, -4)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_1fspn")
 
 [node name="TowerDefenseTile250" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(2, 2)
-texture = ExtResource("2_kaif2")
+scale = Vector2(3, 3)
+texture = ExtResource("2_ghopm")
 metadata/_edit_lock_ = true
 
 [node name="Tower" type="Area2D" parent="."]
@@ -144,7 +143,7 @@ collision_mask = 7
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
-position = Vector2(-5.5, 0.5)
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_fyn7l")
 metadata/_edit_lock_ = true
 

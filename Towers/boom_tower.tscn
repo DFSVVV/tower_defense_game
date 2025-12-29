@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr54wnu7dr843"]
+[gd_scene load_steps=5 format=3 uid="uid://dr54wnu7dr843"]
 
 [ext_resource type="PackedScene" uid="uid://cxmourwhy2hg6" path="res://Towers/BaseTower.tscn" id="1_11cqr"]
 [ext_resource type="Texture2D" uid="uid://b47l8eg60cytx" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_lightning_tower.png" id="2_6dnq7"]
 [ext_resource type="Script" uid="uid://bf7p56dpmhf2f" path="res://Scripts/boom_tower.gd" id="2_l5sri"]
+[ext_resource type="PackedScene" uid="uid://dlemv8kvb14oq" path="res://Bullet/boom_bullet.tscn" id="3_j001n"]
 
 [node name="BoomTower" instance=ExtResource("1_11cqr")]
 script = ExtResource("2_l5sri")
@@ -11,12 +12,13 @@ explosion_radius = 500
 is_aoe_damage = true
 explosion_radius_upgrade_cost = 30
 explosion_radius_increment = 50
+bullet_scene = ExtResource("3_j001n")
+description = "这是一个发射爆炸子弹的塔"
 
 [node name="CollisionShape2D2" parent="." index="1"]
 position = Vector2(1, 0)
 
 [node name="TowerDefenseTile250" parent="." index="2"]
-rotation = 0.0
 texture = ExtResource("2_6dnq7")
 
 [node name="CollisionShape2D" parent="TowerDetector" index="0"]
