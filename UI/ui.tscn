@@ -59,13 +59,13 @@ tower = ExtResource("4_c7tqi")
 layout_mode = 2
 tower = ExtResource("6_4fiuh")
 
-[node name="Electricity" type="Label" parent="."]
+[node name="Gold" type="Label" parent="."]
 offset_left = 6.0
 offset_top = 8.0
 offset_right = 518.0
 offset_bottom = 149.0
 theme_override_font_sizes/font_size = 100
-text = "电力"
+text = "金币"
 script = SubResource("GDScript_fdl0b")
 
 [node name="Wave" type="Label" parent="."]
