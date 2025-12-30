@@ -198,6 +198,15 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range"]
+layout_mode = 0
+offset_left = 2.5
+offset_top = -24.5
+offset_right = 118.5
+offset_bottom = 1.5
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AttackSpeed" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
@@ -220,6 +229,15 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed"]
+layout_mode = 0
+offset_left = 2.5
+offset_top = -24.5
+offset_right = 118.5
+offset_bottom = 1.5
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
@@ -239,6 +257,15 @@ offset_top = 124.0
 offset_right = 122.0
 offset_bottom = 150.0
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power"]
+layout_mode = 0
+offset_left = 2.5
+offset_top = -24.5
+offset_right = 118.5
+offset_bottom = 1.5
 horizontal_alignment = 1
 vertical_alignment = 1
 

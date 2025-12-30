@@ -37,6 +37,7 @@ func _process(delta):
 		if timer.is_stopped():
 			Shoot(curr)
 			timer.start()
+	timer.wait_time = fire_rate /(1 + Game.global_speed_bonus)
 	update_powers()
 func Shoot(target_node:CharacterBody2D):
 	var tempBullet = bullet_scene.instantiate()
@@ -94,23 +95,37 @@ func _on_input_event(viewport, event, shape_idx):
 
 func _on_range_pressed():
 	if Game.Gold >= update_range_cost:
-		base_range += 30
-		Game.Gold -= update_range_cost
-		addValue(update_range_cost)
+		if base_range < 800 :
+			base_range += 30
+			Game.Gold -= update_range_cost
+			addValue(update_range_cost)
+			if base_range >= 800:
+				$Upgrade/Upgrade/HBoxContainer/Range.disabled = true
+				$Upgrade/Upgrade/HBoxContainer/Range/Label2.text = "MAX"
+		else:
+			return
 func _on_attack_speed_pressed():
 	if Game.Gold >= update_fire_rate_cost:
-		if fire_rate > 0.15:
-			fire_rate -= 0.1
-			timer.wait_time = fire_rate
+		if fire_rate > 0.35:
+			fire_rate -= 0.03
 			Game.Gold -= update_fire_rate_cost
 			addValue(update_fire_rate_cost)
+			if fire_rate <= 0.35:
+				$Upgrade/Upgrade/HBoxContainer/AttackSpeed.disabled = true
+				$Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label2.text = "MAX"
 		else:
 			return
 func _on_power_pressed():
 	if Game.Gold >= update_damage_cost:
-		base_damage += 1
-		Game.Gold -= update_damage_cost
-		addValue(update_damage_cost)
+		if base_damage < 30:
+			base_damage += 1
+			Game.Gold -= update_damage_cost
+			addValue(update_damage_cost)
+			if base_damage >= 30:
+				$Upgrade/Upgrade/HBoxContainer/Power.disabled = true
+				$Upgrade/Upgrade/HBoxContainer/Power/Label2.text = "MAX"
+		else:
+			return
 		
 func _on_delete_pressed() :
 	Game.Gold += int(value * 0.7)
@@ -134,7 +149,7 @@ func _on_range_mouse_exited():
 
 func update_powers():
 	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label").text = str(base_range)
-	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label").text = str(fire_rate)
+	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label").text = "%.2f" % (fire_rate / (1 + Game.global_speed_bonus))
 	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label").text = str(base_damage + Game.global_damage_bonus)
 	
 	get_node("Tower/CollisionShape2D").shape.radius = base_range

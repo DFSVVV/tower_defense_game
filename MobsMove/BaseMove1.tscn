@@ -1,8 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgpnvc6ntq5m8"]
 
-[ext_resource type="PackedScene" uid="uid://5q18kkg3b0ww" path="res://MobsMove/BaseMove.tscn" id="1_r82g3"]
+[ext_resource type="PackedScene" uid="uid://ceagkljbxlvja" path="res://MobsMove/BaseMove.tscn" id="1_r82g3"]
 [ext_resource type="PackedScene" uid="uid://jn2rceiqhdmc" path="res://Mobs/BaseEnemy.tscn" id="2_c5hii"]
 
 [node name="BaseMove" instance=ExtResource("1_r82g3")]
 
-[node name="BaseEnemy" parent="Follow" index="0" instance=ExtResource("2_c5hii")]
+[node name="Follow#BaseEnemy" parent="PathSpawner" index="0" instance=ExtResource("2_c5hii")]
+position = Vector2(-6.0109253, -3.9834747)
+rotation = -1.5735486
+scale = Vector2(3.0000002, 3.0000002)

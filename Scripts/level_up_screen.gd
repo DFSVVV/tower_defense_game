@@ -98,6 +98,7 @@ func apply_upgrade_effect(item: UpgradeItem):
 			Game.global_pierce += int(item.value)  # value=1
 		"crit":
 			Game.global_crit_chance = clamp(Game.global_crit_chance + float(item.value), 0.0, 1.0)
-
+		"health":
+			Game.Health += item.value
 		"crit_mul":
 			Game.global_crit_mul += float(item.value)

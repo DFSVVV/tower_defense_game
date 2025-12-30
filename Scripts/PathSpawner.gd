@@ -95,33 +95,15 @@ func spawn_one(enemy_type: String, wave_no: int) -> void:
 		push_error("缺少 enemy_type 对应的场景: " + enemy_type)
 		return
 
-	#wrapper 是 Node2D（GoblinMove/DemonMove/TankMove）
-	var wrapper: Node = move_scene.instantiate()
-
-	#wrapper 里必须有 Follow (PathFollow2D)
-	var mover: PathFollow2D = wrapper.get_node_or_null("Follow") as PathFollow2D
-	if mover == null:
-		push_error("Move 场景缺少 Follow 节点: " + enemy_type)
-		wrapper.queue_free()
-		return
-
-	#mover 里面要找到 BaseEnemy（可能不是第一个子节点，所以用递归查）
-	var enemy: BaseEnemy = find_enemy(mover)
-	if enemy == null:
-		push_error("Follow 里找不到 BaseEnemy: " + enemy_type)
-		# wrapper 已经没用了
-		wrapper.queue_free()
-		return
-
+	var wrapper = move_scene.instantiate()
+	var enemy = wrapper.get_node("PathSpawner").get_child(0)
+	print(enemy)
 	var hp := get_enemy_hp(enemy_type, wave_no)
 	enemy.health = hp
 	enemy.speed = ENEMY[enemy_type]["speed"]
 	enemy.gold_reward = ENEMY[enemy_type]["gold"]
-	#把 mover 从 wrapper 拆下来，再挂到 Path2D
-	wrapper.remove_child(mover)
-	path.add_child(mover)
-	mover.progress = 0.0
-	wrapper.queue_free()
+	##把 mover 从 wrapper 拆下来，再挂到 Path2D
+	add_child(wrapper)
 
 func get_enemy_hp(enemy_type: String, wave: int) -> int:
 	var base_hp := int(ENEMY[enemy_type]["base_hp"])

@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvtrtpoxwdqu6"]
+[gd_scene load_steps=3 format=3 uid="uid://born0eyd00xqf"]
 
-[ext_resource type="PackedScene" uid="uid://5q18kkg3b0ww" path="res://MobsMove/BaseMove.tscn" id="1_viuxb"]
-[ext_resource type="PackedScene" uid="uid://dyahl3hcdpyhx" path="res://Mobs/Demon.tscn" id="2_y4l3m"]
+[ext_resource type="PackedScene" uid="uid://ceagkljbxlvja" path="res://MobsMove/BaseMove.tscn" id="1_feewt"]
+[ext_resource type="PackedScene" uid="uid://dyahl3hcdpyhx" path="res://Mobs/Demon.tscn" id="2_3vt13"]
 
-[node name="BaseMove" instance=ExtResource("1_viuxb")]
+[node name="Path2D" instance=ExtResource("1_feewt")]
 
-[node name="Demon" parent="Follow" index="0" instance=ExtResource("2_y4l3m")]
+[node name="Demon" parent="PathSpawner" index="0" instance=ExtResource("2_3vt13")]

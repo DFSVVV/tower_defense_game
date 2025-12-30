@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dedc4s5gs6k8v" path="res://Tiles/TileMap.tscn" id="1_25n6f"]
 [ext_resource type="Script" uid="uid://dqdyrsdi5mk85" path="res://Scripts/PathSpawner.gd" id="2_3vi2l"]
-[ext_resource type="PackedScene" path="res://UI/ui.tscn" id="4_4jwic"]
+[ext_resource type="PackedScene" uid="uid://b40pahsimrlk6" path="res://UI/ui.tscn" id="4_4jwic"]
 [ext_resource type="PackedScene" uid="uid://b5hmuba4q0ko" path="res://UI/level_up_screen.tscn" id="4_dyfb5"]
 [ext_resource type="PackedScene" uid="uid://dt3a8ju7n34xn" path="res://UI/pause.tscn" id="5_6sydh"]
 [ext_resource type="Texture2D" uid="uid://djo287ww4li7u" path="res://Assets/NewTilesheet/3 Animated Objects/1 Flag/1.png" id="7_a2b50"]

@@ -13,8 +13,6 @@ class_name UpgradeItem
 	"gold",
 	"health",
 	"pierce",      
-
-
 	"crit",
 	"crit_mul",    
 	"wave_gold",   

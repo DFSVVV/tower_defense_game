@@ -41,7 +41,12 @@ func _generate_tower_info():
 	
 	# 也可以加上造价提示
 	info_text += "\n建造花费: %d 金币" % tower_cost
-
+	# 也可以加上造价提示
+	info_text += "\n升级范围花费: %d 金币" % temp_tower.update_range_cost
+	# 也可以加上造价提示
+	info_text += "\n升级射速花费: %d 金币" % temp_tower.update_fire_rate_cost
+	# 也可以加上造价提示
+	info_text += "\n升级伤害花费: %d 金币" % temp_tower.update_damage_cost
 	# 将生成的文本赋值给 Panel 自带的 tooltip_text 属性
 	tooltip_text = info_text
 	

@@ -20,7 +20,6 @@ var global_crit_mul: float = 2.0      # 暴击倍率
 
 
 
-
 signal level_up_ready #升级信号
 # 尝试花费金币
 func try_spend_gold(amount: int) -> bool:

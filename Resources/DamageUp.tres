@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_hqrsf")
-title = "炮台伤害提高10%"
-description = "炮台伤害提高10%"
+title = "炮台伤害提高1点"
+description = "炮台伤害提高1点"
+value = 1.0
 metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

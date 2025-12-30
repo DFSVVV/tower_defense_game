@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://h86i2vpostdt"]
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://c7vfh6dp3631n"]
 
 [ext_resource type="Script" uid="uid://dyb5x0kre8wa8" path="res://Scripts/upgrade_item.gd" id="1_yc7o3"]
 
