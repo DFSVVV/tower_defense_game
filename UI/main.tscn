@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://6c6kewqbkigy"]
+[gd_scene load_steps=9 format=3 uid="uid://6c6kewqbkigy"]
 
 [ext_resource type="PackedScene" uid="uid://dedc4s5gs6k8v" path="res://Tiles/TileMap.tscn" id="1_25n6f"]
 [ext_resource type="Script" uid="uid://dqdyrsdi5mk85" path="res://Scripts/PathSpawner.gd" id="2_3vi2l"]
-[ext_resource type="PackedScene" uid="uid://ddoeholnt2lip" path="res://UI/ui.tscn" id="4_4jwic"]
 [ext_resource type="PackedScene" uid="uid://b5hmuba4q0ko" path="res://UI/level_up_screen.tscn" id="4_dyfb5"]
 [ext_resource type="PackedScene" uid="uid://dt3a8ju7n34xn" path="res://UI/pause.tscn" id="5_6sydh"]
 [ext_resource type="PackedScene" uid="uid://dr2curieg6d4y" path="res://Decorations/BaseDecoration.tscn" id="5_deq60"]
-[ext_resource type="PackedScene" uid="uid://ceagkljbxlvja" path="res://MobsMove/Path2D.tscn" id="7_eto42"]
+[ext_resource type="PackedScene" uid="uid://5q18kkg3b0ww" path="res://MobsMove/BaseMove.tscn" id="7_eto42"]
 
 [sub_resource type="GDScript" id="GDScript_tiaqs"]
 script/source = "extends Node2D
@@ -36,7 +35,7 @@ func _process(delta):
 		Towers.append(get_child(i))
 "
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 script = SubResource("GDScript_tiaqs")
 
 [node name="TileMap" parent="." instance=ExtResource("1_25n6f")]
@@ -52,8 +51,6 @@ script = SubResource("GDScript_bahdm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1792, 1024)
-
-[node name="UI" parent="." instance=ExtResource("4_4jwic")]
 
 [node name="LevelUpScreen" parent="." instance=ExtResource("4_dyfb5")]
 
