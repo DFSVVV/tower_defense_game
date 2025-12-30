@@ -15,6 +15,8 @@ custom_minimum_size = Vector2(1, 0)
 offset_left = 0.81037235
 offset_right = 19.810371
 offset_bottom = 31.8
+text = "70
+"
 
 [node name="TowerDefenseTile272" parent="TowerDefenseTile250/Label" index="0"]
 scale = Vector2(0.469, 0.469)

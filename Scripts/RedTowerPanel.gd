@@ -2,7 +2,7 @@ extends Panel
 class_name BaseTowerPanel
 @export_category("Tower Settings")
 @export var tower: PackedScene = preload("res://Towers/BaseTower.tscn") # 在这里拖入你的 RedBullet.tscn, BlueTower.tscn 等
-@export var tower_cost: int = 10     # 在这里设置这个塔的价格
+@export var tower_cost: int = 50     # 在这里设置这个塔的价格
 
 @onready var place_player: AudioStreamPlayer = get_tree().get_root().get_node("Main/AudioStreamPlayer2")
 

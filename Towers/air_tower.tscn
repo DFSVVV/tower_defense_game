@@ -1,9 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0ibq4lt3gf24"]
 
 [ext_resource type="PackedScene" uid="uid://cxmourwhy2hg6" path="res://Towers/BaseTower.tscn" id="1_30yb0"]
-[ext_resource type="Texture2D" uid="uid://xcvh8tnuyn02" path="res://Assets/PNG/Default size/towerDefense_tile270.png" id="2_hhcb4"]
+[ext_resource type="Texture2D" uid="uid://dfef6yg7ghwyl" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png" id="2_30yb0"]
 
 [node name="AirTower" instance=ExtResource("1_30yb0")]
+base_damage = 100
+base_range = 800
+fire_rate = 2.0
 
 [node name="TowerDefenseTile250" parent="." index="2"]
-texture = ExtResource("2_hhcb4")
+scale = Vector2(4, 4)
+texture = ExtResource("2_30yb0")

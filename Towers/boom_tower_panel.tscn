@@ -13,3 +13,8 @@ offset_bottom = 81.0
 position = Vector2(36.5, 40.500004)
 scale = Vector2(1.234, 1.25)
 texture = ExtResource("2_uhmj0")
+
+[node name="Label" parent="TowerDefenseTile250" index="0"]
+text = "80
+
+"
