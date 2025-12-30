@@ -28,6 +28,10 @@ window/size/window_width_override=1194
 window/size/window_height_override=682
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="TD Project Reference"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

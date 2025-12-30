@@ -13,20 +13,25 @@ var waves = [
 var current_wave = 0  # 当前波次
 
 func _ready():
-	# 触发波次定时器
-	Game.WaveTotal = 3
+	Game.WaveTotal = waves.size()
 	Game.WaveNow = 0
-	timer.start(3.0)  # 第一个波次的间隔时间
+	current_wave = 0
+	timer.start(3.0)
 
 func _on_timer_timeout():
 	if current_wave < waves.size():
 		var wave = waves[current_wave]
 		current_wave += 1
-		# 根据当前波次的数据来实例化怪物
 		spawn_wave(wave)
-		Game.WaveNow+=1
-		# 设置下一波的间隔时间
-		timer.start(20)
+		Game.WaveNow += 1
+
+		if current_wave < waves.size():
+			timer.start(20)
+		else:
+			timer.stop()
+	else:
+		timer.stop()
+
 
 # 实例化怪物并加入场景
 func spawn_wave(wave_data):

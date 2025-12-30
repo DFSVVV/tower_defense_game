@@ -58,7 +58,8 @@ func trigger_explosion():
 			enemy_body.health -= final_splash_damage
 			print("对", enemy_body.name, "造成范围伤害：", final_splash_damage, " 剩余血量：", enemy_body.health)
 			# 关键补充：血量≤0时触发敌人死亡（核心修复点）
-			if enemy_body.health <= 0:
-				enemy_body.queue_free()
+			# 这里不用管，敌人会自己死亡
+			# if enemy_body.health <= 0:
+				# enemy_body.queue_free()
 	# 6. 爆炸后强制销毁子弹（避免子弹残留，确保逻辑闭环）
 	self.queue_free()

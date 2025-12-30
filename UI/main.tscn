@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6c6kewqbkigy"]
+[gd_scene load_steps=29 format=3 uid="uid://6c6kewqbkigy"]
 
 [ext_resource type="PackedScene" uid="uid://dedc4s5gs6k8v" path="res://Tiles/TileMap.tscn" id="1_25n6f"]
 [ext_resource type="Script" uid="uid://dqdyrsdi5mk85" path="res://Scripts/PathSpawner.gd" id="2_3vi2l"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b5hmuba4q0ko" path="res://UI/level_up_screen.tscn" id="4_dyfb5"]
 [ext_resource type="PackedScene" uid="uid://dt3a8ju7n34xn" path="res://UI/pause.tscn" id="5_6sydh"]
 [ext_resource type="PackedScene" uid="uid://dr2curieg6d4y" path="res://Decorations/BaseDecoration.tscn" id="5_deq60"]
+[ext_resource type="Texture2D" uid="uid://djo287ww4li7u" path="res://Assets/NewTilesheet/3 Animated Objects/1 Flag/1.png" id="7_a2b50"]
+[ext_resource type="AudioStream" uid="uid://metfmwmsqebs" path="res://Assets/MP3/backgroundmusic_game.mp3" id="7_eto42"]
+[ext_resource type="Texture2D" uid="uid://dasmowwguwu22" path="res://Assets/NewTilesheet/3 Animated Objects/2 Campfire/1.png" id="8_7w1xu"]
+[ext_resource type="AudioStream" uid="uid://ckt8yv64ggkyj" path="res://Assets/MP3/music.mp3" id="8_dk31d"]
+[ext_resource type="AudioStream" uid="uid://bpowr37mgt0pw" path="res://Assets/MP3/hurt.mp3" id="9_e5ruq"]
+[ext_resource type="AudioStream" uid="uid://dd1n32ykc52a6" path="res://Assets/MP3/death.mp3" id="10_fmhtc"]
 
 [sub_resource type="GDScript" id="GDScript_tiaqs"]
 script/source = "extends Node2D
@@ -17,9 +23,15 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# func _process(delta):
+# 	if Game.Health <= 0 or (Game.WaveNow == Game.WaveTotal and Game.EnemyNum == 0):
+# 		get_tree().change_scene_to_file(\"res://UI/MainMenu.tscn\")
+
 func _process(delta):
-	if Game.Health <= 0 or (Game.WaveNow == Game.WaveTotal and Game.EnemyNum == 0):
-		get_tree().change_scene_to_file(\"res://UI/MainMenu.tscn\")
+	if Game.Health <= 0:
+		get_tree().change_scene_to_file(\"res://UI/fail.tscn\")
+	elif Game.WaveNow == Game.WaveTotal and Game.EnemyNum == 0:
+		get_tree().change_scene_to_file(\"res://UI/success.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_bahdm"]
@@ -34,6 +46,106 @@ func _process(delta):
 	for i in get_child_count():
 		Towers.append(get_child(i))
 "
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2b50"]
+atlas = ExtResource("7_a2b50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w1xu"]
+atlas = ExtResource("7_a2b50")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih1d4"]
+atlas = ExtResource("7_a2b50")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2g6k"]
+atlas = ExtResource("7_a2b50")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkf2w"]
+atlas = ExtResource("7_a2b50")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfltm"]
+atlas = ExtResource("7_a2b50")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7w1xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2b50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w1xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2g6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkf2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfltm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4xe3"]
+atlas = ExtResource("8_7w1xu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n8ge"]
+atlas = ExtResource("8_7w1xu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2ejq"]
+atlas = ExtResource("8_7w1xu")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldupu"]
+atlas = ExtResource("8_7w1xu")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6hxo"]
+atlas = ExtResource("8_7w1xu")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckpi6"]
+atlas = ExtResource("8_7w1xu")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkmed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4xe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2ejq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldupu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6hxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckpi6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 script = SubResource("GDScript_tiaqs")
@@ -61,7 +173,39 @@ position = Vector2(1792, 1024)
 
 [node name="Node2D" parent="Decorations" instance=ExtResource("5_deq60")]
 y_sort_enabled = true
-position = Vector2(266, 126)
+position = Vector2(229, 583)
 scale = Vector2(10, 10)
+
+[node name="Flag" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(3419, 544)
+scale = Vector2(4.1406174, 3.1328125)
+sprite_frames = SubResource("SpriteFrames_7w1xu")
+autoplay = "default"
+
+[node name="Campfire" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(346, 575.00006)
+scale = Vector2(2.375, 1.890625)
+sprite_frames = SubResource("SpriteFrames_mkmed")
+autoplay = "default"
+
+[node name="Campfire2" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(117, 571.00006)
+scale = Vector2(2.375, 1.890625)
+sprite_frames = SubResource("SpriteFrames_mkmed")
+autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eto42")
+volume_db = -15.266
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_dk31d")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_e5ruq")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_fmhtc")
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]

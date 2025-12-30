@@ -4,6 +4,8 @@ class_name BaseTowerPanel
 @export var tower: PackedScene = preload("res://Towers/BaseTower.tscn") # 在这里拖入你的 RedBullet.tscn, BlueTower.tscn 等
 @export var tower_cost: int = 10     # 在这里设置这个塔的价格
 
+@onready var place_player: AudioStreamPlayer = get_tree().get_root().get_node("Main/AudioStreamPlayer2")
+
 var currTile
 func _ready():
 	# 设置鼠标光标形状为手型，提示可交互
@@ -66,7 +68,7 @@ func _on_gui_input(event):
 				var tile = mapPath.local_to_map(get_global_mouse_position())
 				currTile = mapPath.get_cell_atlas_coords(tile)
 				var targets = get_child(1).get_node("TowerDetector").get_overlapping_bodies()
-				if (currTile == Vector2i(19,6)):
+				if (currTile == Vector2i(5,5)):
 					if (targets.size() > 1):
 						get_child(1).get_node("Area").modulate = Color(255,255,255)
 					else:
@@ -81,7 +83,7 @@ func _on_gui_input(event):
 			else:
 				if get_child_count() > 1:
 					get_child(1).queue_free()
-				if currTile == Vector2i(19,6):
+				if currTile == Vector2i(5,5):
 					var targets = get_child(1).get_node("TowerDetector").get_overlapping_bodies()
 					var path = get_tree().get_root().get_node("Main/Towers")
 					if (targets.size() < 2):
@@ -89,7 +91,12 @@ func _on_gui_input(event):
 						tempTower.global_position = event.global_position
 						tempTower.get_node("Area").hide()
 						Game.Gold -= tower_cost
+						
+						place_player.stop()
+						place_player.play()
+						
 						tempTower.locate = true
 		else:
 			if get_child_count() > 1:
 				get_child(1).queue_free()
+				

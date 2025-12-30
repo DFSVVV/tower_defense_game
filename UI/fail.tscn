@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhtlhoay6hm54"]
+
+[ext_resource type="AudioStream" uid="uid://ddbic30wdxdeq" path="res://Assets/MP3/fail.mp3" id="1_58qun"]
+
+[sub_resource type="GDScript" id="GDScript_kcp4h"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().change_scene_to_file(\"res://UI/MainMenu.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_i1oq4"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
+
+[node name="Fail" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 3201.0
+offset_bottom = 1792.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 3585.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 100
+text = "Game Over！！！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+offset_left = 1024.0
+offset_top = 1024.0
+offset_right = 1536.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+script = SubResource("GDScript_kcp4h")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 2048.0
+offset_top = 1024.0
+offset_right = 2560.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+script = SubResource("GDScript_i1oq4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_58qun")
+autoplay = true
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce5r4nfsiuwjc"]
+[gd_scene load_steps=6 format=3 uid="uid://ce5r4nfsiuwjc"]
 
 [ext_resource type="PackedScene" uid="uid://dedc4s5gs6k8v" path="res://Tiles/TileMap.tscn" id="1_gd7xx"]
+[ext_resource type="AudioStream" uid="uid://dcv688hpja0un" path="res://Assets/MP3/backgroundmusic_menu.mp3" id="2_b37jj"]
 
 [sub_resource type="GDScript" id="GDScript_ubuel"]
 script/source = "extends Node2D
@@ -71,6 +72,10 @@ offset_bottom = 1344.0
 theme_override_font_sizes/font_size = 100
 text = "Quit"
 script = SubResource("GDScript_hodjd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_b37jj")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

@@ -6,20 +6,29 @@ class_name BaseEnemy
 @export var speed: int = 1000
 @export var gold_reward: int = 10
 @export var research_point : int = 1
+@onready var place_player1: AudioStreamPlayer = get_tree().get_root().get_node("Main/AudioStreamPlayer3")
+@onready var place_player2: AudioStreamPlayer = get_tree().get_root().get_node("Main/AudioStreamPlayer4")
 func _physics_process(delta):
 	get_parent().set_progress(get_parent().get_progress() + speed*delta)
 	
 	if get_parent().get_progress_ratio() == 1:
 		Game.Health-=1
+		
+		place_player1.stop()
+		place_player1.play()
+		
 		death()
 		
 	if health <= 0:
+		place_player2.stop()
+		place_player2.play()
 		death()
 		Game.gain_gold(gold_reward)
 		Game.gain_research(research_point)
 	
 func death():
 	Game.EnemyNum -=1
+	print(Game.EnemyNum)
 	get_parent().get_parent().queue_free()
 func restore_speed():
 	# 恢复原始速度

@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct3igl8qjajai"]
+
+[ext_resource type="AudioStream" uid="uid://bxxqgy2ijmu0" path="res://Assets/MP3/victory.mp3" id="1_3lr6x"]
+
+[sub_resource type="GDScript" id="GDScript_w7pmy"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="GDScript" id="GDScript_6ygko"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().change_scene_to_file(\"res://UI/MainMenu.tscn\")
+"
+
+[node name="Success" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 3201.0
+offset_bottom = 1792.0
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 2048.0
+offset_top = 1024.0
+offset_right = 2560.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+script = SubResource("GDScript_w7pmy")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 1024.0
+offset_top = 1024.0
+offset_right = 1536.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+script = SubResource("GDScript_6ygko")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 3585.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 100
+text = "Congratulation！！！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3lr6x")
+autoplay = true
+
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]

@@ -61,6 +61,8 @@ func Shoot(target_node: CharacterBody2D):
 		tempBullet.global_position = fire_point.global_position
 	else:
 		tempBullet.global_position = global_position
+		
+	_play_shot_sfx()
 
 # 专属升级：扩大爆炸范围（丰富升级维度）
 func _on_explosion_radius_pressed():

@@ -62,6 +62,8 @@ func Shoot(target_node: CharacterBody2D):
 			var enemy = result.get("collider")
 			if enemy is BaseEnemy and is_instance_valid(enemy):
 				apply_slow_effect(enemy)
+	
+	_play_shot_sfx()
 
 # 核心方法：给敌人应用减速效果（优化计时器命名与重复创建）
 func apply_slow_effect(enemy: BaseEnemy):

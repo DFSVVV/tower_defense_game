@@ -12,6 +12,8 @@ class_name BaseTower
 @export var update_fire_rate_cost: int = 10
 @export var description: String = "这是一个发射普通子弹的塔"
 
+@onready var shoot_sfx: AudioStreamPlayer = $ShootSfx
+
 var pathName
 var currTargets = []
 var curr
@@ -43,6 +45,7 @@ func Shoot(target_node:CharacterBody2D):
 	tempBullet.bulletDamage = base_damage  + Game.global_damage_bonus
 	get_node("BulletContainer").add_child(tempBullet)
 	tempBullet.global_position = $Aim.global_position
+	_play_shot_sfx()
 	
 func _update_target():
 	# 获取当前圈内所有敌人
@@ -137,3 +140,7 @@ func update_powers():
 	get_node("Tower/CollisionShape2D").shape.radius = base_range
 func addValue(num:int):
 	self.value += num
+
+func _play_shot_sfx():
+	if is_instance_valid(shoot_sfx):
+		shoot_sfx.play()
