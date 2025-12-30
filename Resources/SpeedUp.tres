@@ -5,7 +5,6 @@
 [resource]
 script = ExtResource("1_6my8v")
 title = "攻击速度加10"
-description = "攻击速度加10"
+description = "攻击速度加10%"
 id = "speed"
-value = 10
 metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

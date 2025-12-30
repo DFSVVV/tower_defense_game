@@ -11,6 +11,16 @@ var xp_to_next_level
 var global_damage_bonus
 var global_speed_bonus 
 var upgrade
+var upgrade_levels: Dictionary = {}
+
+#三选一升级添加
+var global_pierce := 0
+var global_crit_chance: float = 0.0   # 0.0 ~ 1.0
+var global_crit_mul: float = 2.0      # 暴击倍率
+
+
+
+
 signal level_up_ready #升级信号
 # 尝试花费金币
 func try_spend_gold(amount: int) -> bool:

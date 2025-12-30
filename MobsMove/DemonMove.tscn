@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvtrtpoxwdqu6"]
+
+[ext_resource type="PackedScene" uid="uid://5q18kkg3b0ww" path="res://MobsMove/BaseMove.tscn" id="1_viuxb"]
+[ext_resource type="PackedScene" uid="uid://dyahl3hcdpyhx" path="res://Mobs/Demon.tscn" id="2_y4l3m"]
+
+[node name="BaseMove" instance=ExtResource("1_viuxb")]
+
+[node name="Demon" parent="Follow" index="0" instance=ExtResource("2_y4l3m")]

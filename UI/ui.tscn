@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddoeholnt2lip"]
+[gd_scene load_steps=13 format=3 uid="uid://ddoeholnt2lip"]
 
 [ext_resource type="PackedScene" uid="uid://crnrm71rqmepv" path="res://Towers/BaseTowerPanel.tscn" id="2_5wnq8"]
 [ext_resource type="Script" uid="uid://wgejhx7xie2f" path="res://Scripts/health.gd" id="2_m6e0p"]
 [ext_resource type="Script" uid="uid://6h2cghkta0at" path="res://Scripts/time.gd" id="3_27fn8"]
+[ext_resource type="PackedScene" uid="uid://b0ibq4lt3gf24" path="res://Towers/air_tower.tscn" id="3_h81ot"]
 [ext_resource type="PackedScene" uid="uid://6j31r2uyss7b" path="res://Towers/slow_towerPanel.tscn" id="3_nm1m0"]
 [ext_resource type="PackedScene" uid="uid://c13ypbll22td3" path="res://Towers/slow_tower.tscn" id="4_c7tqi"]
 [ext_resource type="Script" uid="uid://bew3dbny7abvc" path="res://Scripts/科技点.gd" id="5_3sbvi"]
@@ -48,16 +49,22 @@ scale = Vector2(3, 3)
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
-[node name="RedTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("2_5wnq8")]
+[node name="BaseTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("2_5wnq8")]
 layout_mode = 2
+
+[node name="AirTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("2_hat8c")]
+layout_mode = 2
+tower = ExtResource("3_h81ot")
 
 [node name="SlowTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("3_nm1m0")]
 layout_mode = 2
 tower = ExtResource("4_c7tqi")
+tower_cost = 70
 
 [node name="BoomTowerPanel" parent="Panel/TowerContainer" instance=ExtResource("5_cbfhl")]
 layout_mode = 2
 tower = ExtResource("6_4fiuh")
+tower_cost = 80
 
 [node name="Gold" type="Label" parent="."]
 offset_left = 6.0

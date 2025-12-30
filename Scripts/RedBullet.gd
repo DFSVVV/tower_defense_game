@@ -2,11 +2,11 @@ extends StaticBody2D
 class_name BaseTower
 @export_category("塔属性")
 @export var bullet_scene: PackedScene = preload("res://Bullet/BaseBullet.tscn")# 拖入不同的子弹场景 (如 RedBullet.tscn)
-@export var base_damage: int = 5
-@export var base_range: int = 400
-@export var fire_rate: float = 1.0 # 射击间隔 (秒)，替代原本的 reload 逻辑
+@export var base_damage: int = 20
+@export var base_range: int = 320
+@export var fire_rate: float = 0.5 # 射击间隔 (秒)，替代原本的 reload 逻辑
 @export var bullet_speed: int = 1000#子弹飞行速度
-@export var build_cost: int = 10#建造花费
+@export var build_cost: int = 50#建造花费
 @export var update_range_cost: int = 10
 @export var update_damage_cost: int = 10
 @export var update_fire_rate_cost: int = 10

@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_8pcf5")
+title = "提升最大生命值"
+description = "提升最大生命值"
+id = "health"
+value = 10
 metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

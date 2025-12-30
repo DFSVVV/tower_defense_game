@@ -40,9 +40,9 @@ animations = [{
 }]
 
 [node name="Goblin" instance=ExtResource("1_u0hs3")]
-health = 100
-gold_reward = 100
-research_point = 10
+health = 80
+speed = 320.0
+gold_reward = 12
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_fn2b1")

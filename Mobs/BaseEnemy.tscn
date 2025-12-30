@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jn2rceiqhdmc"]
+[gd_scene load_steps=13 format=3 uid="uid://jn2rceiqhdmc"]
 
 [ext_resource type="Script" uid="uid://blo0w0bbv4rdi" path="res://Scripts/BaseEnemy.gd" id="1_0wax5"]
 [ext_resource type="Texture2D" uid="uid://bkth3cp4emern" path="res://Assets/Asset/Simple Tower Defense/Enemies/spr_bat.png" id="2_818h4"]
@@ -59,12 +59,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_12gc2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.26966298), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="BaseEnemy" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_0wax5")
-speed = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_2nkuh")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
@@ -83,4 +87,20 @@ script = SubResource("GDScript_lq2ab")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i84gb")
 autoplay = "default"
-frame_progress = 0.2288611
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 75.0
+damping_min = 26.804
+damping_max = 29.897
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_12gc2")

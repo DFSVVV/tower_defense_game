@@ -8,7 +8,7 @@ script/source = "extends Node2D
 func _ready():
 	Game.Health = 10
 	Game.Ancient_Reasearch_points = 0#古代科研点
-	Game.Gold = 1000
+	Game.Gold = 100
 	Game.WaveTotal = 0
 	Game.WaveNow = 0
 	Game.EnemyNum = 0

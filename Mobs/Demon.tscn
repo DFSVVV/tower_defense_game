@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyahl3hcdpyhx"]
+
+[ext_resource type="PackedScene" uid="uid://jn2rceiqhdmc" path="res://Mobs/BaseEnemy.tscn" id="1_tyjvm"]
+[ext_resource type="Texture2D" uid="uid://b5xu3q2hcvkuk" path="res://Assets/Asset/Simple Tower Defense/Enemies/spr_demon.png" id="2_e35kv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p07x"]
+atlas = ExtResource("2_e35kv")
+region = Rect2(0, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7h37"]
+atlas = ExtResource("2_e35kv")
+region = Rect2(10, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_833d1"]
+atlas = ExtResource("2_e35kv")
+region = Rect2(20, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64l3g"]
+atlas = ExtResource("2_e35kv")
+region = Rect2(30, 0, 10, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tekp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p07x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7h37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_833d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64l3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Demon" instance=ExtResource("1_tyjvm")]
+health = 240
+speed = 160.0
+gold_reward = 25
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_2tekp")

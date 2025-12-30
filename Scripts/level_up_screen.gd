@@ -12,6 +12,12 @@ func _ready():
 	visible = false
 	# 连接 Game 单例的信号
 	Game.level_up_ready.connect(_on_level_up_ready)
+	
+func get_upgrade_level(id: String) -> int:
+	# 你可以把 upgrade_levels 放在 Game.gd
+	return Game.upgrade_levels.get(id, 0)
+
+	
 func load_upgrades_from_folder():
 	# 尝试打开文件夹
 	var dir = DirAccess.open(UPGRADES_PATH)
@@ -58,15 +64,29 @@ func create_card(item: UpgradeItem):
 	card.set_info(item.title, item.description, item.icon)
 	card.pressed.connect(_on_card_selected.bind(item))
 
+
 func _on_card_selected(item: UpgradeItem):
-	print("选择了升级: ", item.title)	
+	print("选择了升级: ", item.title)
+
+	# 记录等级（你需要在 Game.gd 里有 upgrade_levels: Dictionary）
+	Game.upgrade_levels[item.id] = Game.upgrade_levels.get(item.id, 0) + 1
+
 	apply_upgrade_effect(item)
+
 	visible = false
 	Game.upgrade = false
 	get_tree().paused = false
-	Game.gain_research(0)
+
+#func _on_card_selected(item: UpgradeItem):
+	#print("选择了升级: ", item.title)	
+	#apply_upgrade_effect(item)
+	#visible = false
+	#Game.upgrade = false
+	#get_tree().paused = false
+	#Game.gain_research(0)
 
 func apply_upgrade_effect(item: UpgradeItem):
+	var lvl = Game.upgrade_levels.get(item.id, 1)
 	match item.id:
 		"damage":
 			Game.global_damage_bonus += item.value
@@ -74,3 +94,10 @@ func apply_upgrade_effect(item: UpgradeItem):
 			Game.global_speed_bonus += item.value
 		"gold":
 			Game.gain_gold(int(item.value))
+		"pierce":
+			Game.global_pierce += int(item.value)  # value=1
+		"crit":
+			Game.global_crit_chance = clamp(Game.global_crit_chance + float(item.value), 0.0, 1.0)
+
+		"crit_mul":
+			Game.global_crit_mul += float(item.value)

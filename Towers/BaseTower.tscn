@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cxmourwhy2hg6"]
 
 [ext_resource type="Script" uid="uid://b85fhi76f03m6" path="res://Scripts/RedBullet.gd" id="1_ghopm"]
-[ext_resource type="Texture2D" uid="uid://cu6bqu0h2swti" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_crossbow.png" id="2_ghopm"]
+[ext_resource type="Texture2D" uid="uid://b6kt2i2dqyfo7" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_cannon.png" id="2_ghopm"]
 [ext_resource type="Texture2D" uid="uid://c31o30053b18e" path="res://Assets/PNG/Default size/towerDefense_tile110.png" id="3_1kaps"]
 [ext_resource type="Texture2D" uid="uid://ddv7aga2ackrn" path="res://Assets/PNG/Default size/towerDefense_tile297.png" id="4_gmnh3"]
 [ext_resource type="Texture2D" uid="uid://ejml0b6ac3kx" path="res://Assets/PNG/Default size/towerDefense_tile296.png" id="5_pg8cm"]
@@ -124,7 +124,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_1fspn")
 
 [node name="TowerDefenseTile250" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_ghopm")
 metadata/_edit_lock_ = true
 
