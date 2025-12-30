@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name BaseEnemy
 
 @export_group("敌人属性") # 加上分组更好看
-@export var health: int = 10
-@export var speed: int = 1000
+@export var health: int = 60
+@export var speed: float = 200.0
 @export var gold_reward: int = 10
 @export var research_point : int = 1
 
@@ -16,11 +16,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	get_parent().set_progress(get_parent().get_progress() + speed*delta)
-	
-	if get_parent().get_progress_ratio() == 1:
-		Game.Health-=1
-		death()
+	if is_dead:
+		return
+	if follow == null:
+		return
 		
 	follow.progress += speed * delta
 
@@ -45,7 +44,7 @@ func take_damage(dmg: int) -> void:
 	health -= dmg
 
 	if health <= 0:
-		death()
+		# ✅ 这里统一处理击杀奖励
 		Game.gain_gold(gold_reward)
 		Game.gain_research(research_point)
 		die(true)
