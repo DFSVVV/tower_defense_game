@@ -86,7 +86,7 @@ func _on_card_selected(item: UpgradeItem):
 	#Game.gain_research(0)
 
 func apply_upgrade_effect(item: UpgradeItem):
-	var lvl = Game.upgrade_levels.get(item.id, 1)
+	var _lvl = Game.upgrade_levels.get(item.id, 1)
 	match item.id:
 		"damage":
 			Game.global_damage_bonus += item.value

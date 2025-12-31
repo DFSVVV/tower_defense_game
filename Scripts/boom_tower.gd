@@ -20,16 +20,6 @@ func _ready():
 	
 	# 预加载配套范围子弹预制体（替换为你的实际资源路径）
 	bullet_scene = preload("res://Bullet/boom_bullet.tscn")
-	
-	# 覆盖基础塔默认属性，适配范围爆炸塔定位（侧重清场，性价比更高）
-	base_damage = 6  # 基础伤害略高于减速塔
-	base_range = 450  # 射程适中，平衡输出与站位
-	fire_rate = 1.2   # 射击间隔略短，保证清场频率
-	bullet_speed = 900  # 子弹速度均衡，兼顾命中与射程
-	build_cost = 20  # 建造成本高于减速塔，符合范围伤害价值
-	update_range_cost = 20
-	update_damage_cost = 25  # 伤害升级优先级最高（核心属性）
-	update_fire_rate_cost = 15  # 攻速升级优先级稍低
 
 # 重写Shoot方法，适配BaseEnemy逻辑，安全发射范围子弹
 func Shoot(target_node: CharacterBody2D):
@@ -99,4 +89,4 @@ func update_powers():
 	super.update_powers()
 	
 	# 计算总范围伤害（含所有加成），用于UI显示
-	var total_splash_damage = base_damage + splash_damage_bonus + Game.global_damage_bonus 
+	var _total_splash_damage = base_damage + splash_damage_bonus + Game.global_damage_bonus 

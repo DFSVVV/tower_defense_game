@@ -7,8 +7,8 @@ class_name SlowTower  # 定义类名，方便编辑器识别
 @export var slow_duration: float = 2.0  # 减速持续时间（秒）
 @export var slow_radius: int = 200  # 减速生效范围（如果是范围减速）
 @export var is_aoe_slow: bool = false  # 是否为范围减速（true=范围，false=单体）
-@onready var attack_area: Area2D = $AttackDetector/Area2D  # 攻击范围检测区域
-@onready var fire_point: Node2D = $FirePoint  # 子弹发射点（在编辑器中创建并摆放位置）
+#@onready var attack_area: Area2D = $AttackDetector/Area2D  # 攻击范围检测区域
+#@onready var fire_point: Node2D = $FirePoint  # 子弹发射点（在编辑器中创建并摆放位置）
 
 # 重写_ready方法，初始化减速塔专属配置
 func _ready():
@@ -16,15 +16,6 @@ func _ready():
 	super._ready()
 	
 	bullet_scene = preload("res://Bullet/slow_bullet.tscn")
-	# 覆盖基础塔的默认属性，适配减速塔定位
-	base_damage = 5  # 减速塔伤害较低
-	base_range = 500  # 减速塔射程更远
-	fire_rate = 1.5   # 减速效果触发间隔
-	bullet_speed = 800  # 子弹速度稍慢，更容易命中
-	build_cost = 15  # 建造成本略高于基础塔
-	update_range_cost = 15
-	update_damage_cost = 10  # 减速塔升级伤害性价比低
-	update_fire_rate_cost = 20  # 升级攻速优先级更高
 
 # 重写Shoot方法，替换为减速逻辑（修复重复扣血，优化范围检测）
 func Shoot(target_node: CharacterBody2D):
@@ -37,10 +28,7 @@ func Shoot(target_node: CharacterBody2D):
 	tempBullet.speed = bullet_speed	
 	tempBullet.bulletDamage = base_damage  + Game.global_damage_bonus
 	get_node("BulletContainer").add_child(tempBullet)
-	if is_instance_valid(fire_point):
-		tempBullet.global_position = fire_point.global_position
-	else:# 降级使用塔本身的位置，避免崩溃
-		tempBullet.global_position = global_position
+	tempBullet.global_position = global_position
 
 	# 1. 单体减速逻辑（移除重复扣血）
 	if not is_aoe_slow:

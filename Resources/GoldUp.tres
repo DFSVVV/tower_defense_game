@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_drnma")
-title = "金币加200"
-description = "金币数加200"
+title = "获得金币"
+description = "金币数加100"
 id = "gold"
-value = 200
+value = 100.0
 metadata/_custom_type_script = "uid://dyb5x0kre8wa8"

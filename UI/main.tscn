@@ -26,7 +26,7 @@ func _ready():
 # 	if Game.Health <= 0 or (Game.WaveNow == Game.WaveTotal and Game.EnemyNum == 0):
 # 		get_tree().change_scene_to_file(\"res://UI/MainMenu.tscn\")
 
-func _process(delta):
+func _process(_delta):
 	if Game.Health <= 0:
 		get_tree().change_scene_to_file(\"res://UI/fail.tscn\")
 	elif Game.WaveNow == Game.WaveTotal and Game.EnemyNum == 0:
@@ -40,7 +40,7 @@ script/source = "extends Node2D
 var Towers = []
 
 
-func _process(delta):
+func _process(_delta):
 	Towers = []
 	for i in get_child_count():
 		Towers.append(get_child(i))

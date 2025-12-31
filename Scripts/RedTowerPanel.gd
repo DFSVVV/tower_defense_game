@@ -82,7 +82,7 @@ func _on_gui_input(event):
 					
 					get_child(1).get_node("Area").modulate = Color(255,255,255)
 		elif event is InputEventMouseButton and event.button_mask == 0:
-			if event.global_position.x >= 2944:
+			if event.global_position.x >= 2683 and event.global_position.y <= 339.0:
 				if get_child_count() > 1:
 					get_child(1).queue_free()
 			else:

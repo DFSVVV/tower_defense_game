@@ -5,6 +5,7 @@
 
 [node name="SlowTowerPanel" instance=ExtResource("1_lotb5")]
 offset_bottom = 80.0
+tower_cost = 60
 
 [node name="TowerDefenseTile250" parent="." index="0"]
 scale = Vector2(1.234, 1.25)

@@ -19,7 +19,7 @@ script/source = "extends ProgressBar
 func _ready():
 	self.max_value = get_parent().health
 	
-func _process(delta):
+func _process(_delta):
 	self.value = get_parent().health
 "
 

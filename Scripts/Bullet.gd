@@ -13,7 +13,7 @@ var hit_set: Dictionary = {}
 func set_target(new_target):
 	target_enemy = new_target
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not is_instance_valid(target_enemy):
 		queue_free()
 		return

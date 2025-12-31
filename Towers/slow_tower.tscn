@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://c13ypbll22td3"]
+[gd_scene load_steps=6 format=3 uid="uid://c13ypbll22td3"]
 
 [ext_resource type="PackedScene" uid="uid://cxmourwhy2hg6" path="res://Towers/BaseTower.tscn" id="1_p6620"]
 [ext_resource type="Texture2D" uid="uid://bd8gqv7b4vmxd" path="res://Assets/Asset/Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png" id="2_6x1cc"]
 [ext_resource type="Script" uid="uid://bweiv7irohyc4" path="res://Scripts/slow_tower.gd" id="2_ovs2l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovs2l"]
+radius = 500.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovs2l"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
 
 [node name="SlowTower" instance=ExtResource("1_p6620")]
 script = ExtResource("2_ovs2l")
@@ -10,19 +20,33 @@ slow_percent = 0.3
 slow_duration = 2.0
 slow_radius = 200
 is_aoe_slow = true
-fire_rate = 0.4
-build_cost = 70
+base_damage = 10
+base_range = 500
+fire_rate = 1.5
+bullet_speed = 800
+build_cost = 60
+update_range_cost = 15
+update_fire_rate_cost = 20
+description = "这是一个发射子弹的塔"
 
 [node name="TowerDefenseTile250" parent="." index="2"]
 light_mask = 9
-rotation = 0.0
 scale = Vector2(4, 4)
 texture = ExtResource("2_6x1cc")
+
+[node name="CollisionShape2D" parent="Tower" index="0"]
+shape = SubResource("CircleShape2D_ovs2l")
 
 [node name="CollisionShape2D" parent="TowerDetector" index="0"]
 position = Vector2(1, 0.5)
 
 [node name="Area" parent="." index="6"]
-offset_top = -401.0
-offset_right = 399.0
-offset_bottom = 399.0
+offset_left = -500.0
+offset_top = -498.0
+offset_right = 520.5802
+offset_bottom = 538.32837
+scale = Vector2(0.98081464, 0.9562606)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovs2l")
+
+[node name="Upgrade" parent="Upgrade" index="0"]
+visible = false

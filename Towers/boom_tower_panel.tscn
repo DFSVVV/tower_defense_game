@@ -8,6 +8,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 81.0
 offset_bottom = 81.0
+tower_cost = 80
 
 [node name="TowerDefenseTile250" parent="." index="0"]
 position = Vector2(36.5, 40.500004)
