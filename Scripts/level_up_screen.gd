@@ -19,26 +19,32 @@ func get_upgrade_level(id: String) -> int:
 
 	
 func load_upgrades_from_folder():
-	# 尝试打开文件夹
 	var dir = DirAccess.open(UPGRADES_PATH)
-	
 	if dir:
-		dir.list_dir_begin() # 开始遍历文件夹
-		var file_name = dir.get_next() # 获取第一个文件名
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
 		
-		# 只要还有文件，就一直循环
 		while file_name != "":
-			if not dir.current_is_dir() and file_name.ends_with(".tres"):
-				var full_path = UPGRADES_PATH + "/" + file_name
-				var resource = load(full_path)
-				# 安全检查：确保加载进来的真的是 UpgradeItem，而不是别的什么资源
-				if resource is UpgradeItem:
-					all_upgrades.append(resource)
+			if not dir.current_is_dir():
+				# --- 修改开始 ---
+				# 1. 在导出后，Godot可能会添加 .remap 后缀，先尝试去掉它
+				var raw_name = file_name
+				if file_name.ends_with(".remap"):
+					raw_name = file_name.trim_suffix(".remap")
+				
+				# 2. 检查是否是 .tres 资源
+				if raw_name.ends_with(".tres"):
+					# 注意：load 的时候不需要带 .remap，Godot 引擎会自动处理
+					var full_path = UPGRADES_PATH + "/" + raw_name 
+					var resource = load(full_path)
+					if resource is UpgradeItem:
+						all_upgrades.append(resource)
+				# --- 修改结束 ---
+				
 			file_name = dir.get_next()
-			
-		dir.list_dir_end() # 结束遍历
+		dir.list_dir_end()
 	else:
-		print("错误：找不到文件夹路径 " + UPGRADES_PATH)
+		print("错误：无法打开文件夹")
 func _on_level_up_ready():
 	# 1. 暂停游戏
 	get_tree().paused = true
